@@ -7,7 +7,7 @@ public class Pilot {
 
         List<Robot> allies = new ArrayList<>();
         List<Monster> monsters = new ArrayList<>();
-        CentralBrain centralBrain;
+        CentralBrain centralBrain = new CentralBrain("Last Transform", "BigBOss", 20000,20000,0,6);
 
         allies.add(new Meele("Excalibur", "sword", 2000, 2000, 100, 0));
         allies.add(new Ranged("Sniper", "Long-Ranged", 1000, 1000, 50, 2));
@@ -78,6 +78,37 @@ public class Pilot {
             ((Support) allies.get(2)).skill2(allies.get(2),allies);
             System.out.println();
         }
+
+        centralBrain.combine(allies.get(0));
+        centralBrain.combine(allies.get(1));
+        centralBrain.combine(allies.get(2));
+        centralBrain.combine(allies.get(3));
+        centralBrain.combine(allies.get(4));
+        centralBrain.getRobots();
+
+
+        System.out.println("\nattack robot besar");
+        centralBrain.attack(monsters.get(0));
+
+        System.out.println("\ncoba setelah detach");
+
+        centralBrain.separate(allies.get(0));
+        centralBrain.separate(allies.get(1));
+        centralBrain.getRobots();
+
+        System.out.println();
+
+        // coba attack pakai monster mati
+        monsters.get(0).attack(allies.get(1));
+
+        // attack biasa
+        monsters.get(1).attack(allies.get(1));
+
+        // heal robot
+        allies.get(1).getMaxhealth();
+        System.out.println(allies.get(1).getHealth());
+
+
     }
     }
 

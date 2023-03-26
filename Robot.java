@@ -99,7 +99,5 @@ public abstract class Robot {
             }
         }
     }
-    public void defend(){}
-    public void heal(){}
 
 }
