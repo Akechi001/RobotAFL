@@ -88,7 +88,7 @@ public class Pilot {
 
 
         System.out.println("\nattack robot besar");
-        centralBrain.attack(monsters.get(0));
+        centralBrain.attack(monsters.get(1));
 
         System.out.println("\ncoba setelah detach");
 

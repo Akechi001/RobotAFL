@@ -14,7 +14,7 @@ public class Monster {
                     }
                     System.out.print(" berkurang menjadi " + robot.getHealth() + "\n");
                 }else{
-                System.out.println("TIDAK ADA");
+
             }
             } else{
 
