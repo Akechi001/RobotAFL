@@ -1,7 +1,15 @@
 public abstract class Robot {
     private String name, type;
     int health, maxhealth, power, position, maxrange, ultimatepoint;
+    boolean defend = true;
 
+    public boolean isDefend() {
+        return defend;
+    }
+
+    public void setDefend(boolean defend) {
+        this.defend = defend;
+    }
 
     public Robot(String name, String type, int health, int maxhealth, int power, int position) {
         this.name = name;
@@ -76,12 +84,19 @@ public abstract class Robot {
     }
 
     public void move(){}
-    public void attack(){
-        if (ultimatepoint <= 4) {
-            setUltimatepoint(ultimatepoint+=1);
-            System.out.println("robot "+getName()+" memberikan "+getPower()+" damage.");
-        }else{
-            System.out.println("robot "+getName()+" memberikan "+getPower()+" damage.");
+    public void attack(Monster monster) {
+        if (monster.getHealth() <= 0) {
+            System.out.println("Monster sudah mati");
+        } else {
+            if (ultimatepoint <= 4) {
+                setUltimatepoint(ultimatepoint += 1);
+                System.out.println("robot " + getName() + " memberikan " + getPower() + " damage.");
+                System.out.print("nyawa monster berkurang dari " + monster.getHealth());
+                monster.setHealth(monster.getHealth() - power);
+                System.out.print(" menjadi " + monster.getHealth() + "\n");
+            } else {
+                System.out.println("robot " + getName() + " memberikan " + getPower() + " damage.");
+            }
         }
     }
     public void defend(){}
