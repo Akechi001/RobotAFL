@@ -7,13 +7,15 @@ public class Monster {
         if (health >= 0) {
             if (robot.getPosition() == position) {
                     System.out.print("\nnyawa robot dari " + robot.getHealth());
-                    if (robot.isDefend()) {
+                    if (!robot.isDefend()) {
                         robot.setHealth(robot.getHealth() - (power / 2));
                     } else {
                         robot.setHealth(robot.getHealth() - power);
                     }
                     System.out.print(" berkurang menjadi " + robot.getHealth() + "\n");
-                }
+                }else{
+                System.out.println("TIDAK ADA");
+            }
             } else{
 
             System.out.println("monster sudah mati");}
