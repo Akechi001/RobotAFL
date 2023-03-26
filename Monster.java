@@ -1,10 +1,13 @@
 public class Monster {
+    //deklarasi variables
     int health =2000;
     int power = 100;
     int position = 0;
 
+
+    //attack untuk monster
     public void attack(Robot robot) {
-        if (health >= 0) {
+        if (health >= 0) {//mengecek kondisi
             if (robot.getPosition() == position) {
                     System.out.print("\nnyawa robot dari " + robot.getHealth());
                     if (!robot.isDefend()) {
@@ -21,6 +24,8 @@ public class Monster {
             System.out.println("monster sudah mati");}
     }
 
+    //setter dan getter some variables
+
     public int getHealth() {
         return health;
     }
@@ -29,21 +34,8 @@ public class Monster {
         this.health = health;
     }
 
-    public int getPower() {
-        return power;
-    }
-
-    public void setPower(int power) {
-        this.power = power;
-    }
-
-
-
     public int getPosition() {
         return position;
     }
 
-    public void setPosition(int position) {
-        this.position = position;
-    }
 }

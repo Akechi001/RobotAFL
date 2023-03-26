@@ -4,17 +4,17 @@ import java.util.Scanner;
 
 public class Pilot {
     public static void main(String[] args) {
-
+        //list buat robot dan monster
         List<Robot> allies = new ArrayList<>();
         List<Monster> monsters = new ArrayList<>();
         CentralBrain centralBrain = new CentralBrain("Last Transform", "BigBOss", 20000,20000,0,6);
-
+        //menambah robot ke Arraylist
         allies.add(new Meele("Excalibur", "sword", 2000, 2000, 100, 0));
         allies.add(new Ranged("Sniper", "Long-Ranged", 1000, 1000, 50, 2));
         allies.add(new Support("Angel", "Healer", 1000, 3000, 50, 3));
         allies.add(new Meele("Phoenix", "mjolnir", 2400, 2400, 150, 4));
         allies.add(new Support("Megawatron", "Buff", 2000, 1000, 50, 5));
-
+        //menambah monster ke Arraylist
         monsters.add(new Monster());
         monsters.add(new Monster());
         monsters.add(new Monster());
@@ -78,7 +78,7 @@ public class Pilot {
             ((Support) allies.get(2)).skill2(allies.get(2),allies);
             System.out.println();
         }
-
+        //combine robot
         centralBrain.combine(allies.get(0));
         centralBrain.combine(allies.get(1));
         centralBrain.combine(allies.get(2));
@@ -86,19 +86,19 @@ public class Pilot {
         centralBrain.combine(allies.get(4));
         centralBrain.getRobots();
 
-
+        //combine robot attack
         System.out.println("\nattack robot besar");
         centralBrain.attack(monsters.get(1));
 
         System.out.println("\ncoba setelah detach");
-
+        //robot separated
         centralBrain.separate(allies.get(0));
         centralBrain.separate(allies.get(1));
         centralBrain.getRobots();
 
         System.out.println();
 
-        // coba attack pakai monster mati
+        //attack memakai monster mati
         monsters.get(0).attack(allies.get(1));
 
         // attack biasa
